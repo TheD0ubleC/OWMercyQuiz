@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OW天使答题答案检索工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-search"></i> OW天使答题答案检索</h1>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i> 夜间模式
+            </button>
+        </header>
+
+        <div class="main-content">
+            <div class="file-manager">
+                <h2><i class="fas fa-folder-open"></i> 文件管理</h2>
+                <div class="file-upload">
+                    <label for="fileInput" class="file-upload-label">
+                        <i class="fas fa-cloud-upload-alt"></i> 上传文件
+                    </label>
+                    <input type="file" id="fileInput" accept=".txt">
+                </div>
+                <div class="file-list" id="fileList">
+                    <div class="no-results">暂无上传文件</div>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <h2><i class="fas fa-search"></i> 搜索题目</h2>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="输入关键词搜索题目..." disabled>
+                </div>
+                <div class="results-container">
+                    <div class="result-column">
+                        <h3>搜索结果 <span id="resultCount" class="result-count">0 个结果</span></h3>
+                        <div id="questionList" class="result-list">
+                            <div class="no-results">请先上传并选择文件</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 By <a href="https://github.com/TheD0ubleC" target="_blank" rel="noopener noreferrer">TheD0ubleC</a></p>
+        </footer>
+    </div>
+
+    <!-- 重命名模态框 -->
+    <div id="renameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>重命名文件</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="renameInput" placeholder="请输入新的文件名称..." class="rename-input">
+                <div class="modal-actions">
+                    <button class="btn btn-cancel" id="cancelRename">取消</button>
+                    <button class="btn btn-confirm" id="confirmRename">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除确认模态框 -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>删除文件</h3>
+                <button class="modal-close" id="deleteModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="delete-message">确定要删除这个文件吗？此操作无法撤销。</p>
+                <div class="modal-actions">
+                    <button class="btn btn-cancel" id="cancelDelete">取消</button>
+                    <button class="btn btn-danger" id="confirmDelete">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
